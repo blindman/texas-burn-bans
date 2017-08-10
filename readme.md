@@ -10,12 +10,36 @@ $ npm install texas-burn-bans
 ```
 
 
+## Attributes
+
+```json
+{
+	"source": "String (URL Endpoint)",
+	"title": "String",
+	"info": "String (URL Endpoint)",
+	"map": "String (URL Endpoint)",
+	"counties": "Array[String]",
+	"author": "String (Email Address)",
+	"date": "Date (ISO Format)"
+}
+```
+
+
 ## Usage
 
 ```js
 const texasBurnBans = require('texas-burn-bans');
 
-texasBurnBans();
+texasBurnBans(data => {
+	console.log('Source XML: %s', data.source);
+	console.log('Title: %s', data.title);
+	console.log('More info: %s', data.info);
+	console.log('Map of Burn Bans: %s', data.map);
+	console.log('Number of Burn Bans: %d', data.counties.length);
+	console.log('Counties with a Burn Ban: %s', data.counties.join(', '));
+	console.log('Author: %s', data.author);
+	console.log('Updated on: %s', Date(data.date));
+});
 ```
 
 
