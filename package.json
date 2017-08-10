@@ -22,7 +22,8 @@
     ""
   ],
   "dependencies": {
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {
     "ava": "^0.20.0",
