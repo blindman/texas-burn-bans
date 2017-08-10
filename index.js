@@ -58,6 +58,14 @@ const formatJson = (_json, _successFn) => {
 };
 
 module.exports = _successFn => {
+	if (typeof _successFn === 'boolean' && _successFn === true) {
+		return {
+			retrieveData,
+			convertXmlToJson,
+			formatJson
+		};
+	}
+
 	if (!_successFn) {
 		throw new Error('No callback was provided to handle the data (this operation is synchronous only in its current version).');
 	}
