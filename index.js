@@ -53,7 +53,18 @@ const formatJson = (_json, _successFn) => {
 		map: _json.rss.channel[0].item[0].link[0],
 		counties: _json.rss.channel[0].item[0].description[0].split(', '),
 		author: _json.rss.channel[0].item[0].author[0],
-		date: new Date(_json.rss.channel[0].item[0].title[0].split(' - ')[1].trim())
+		date: new Date(_json.rss.channel[0].item[0].title[0].split(' - ')[1].trim()),
+		_meta: {
+			rss: {
+				namespace: _json.rss.$['xmlns:atom'],
+				version: _json.rss.$.version
+			},
+			channel: {
+				href: _json.rss.channel[0]['atom:link'][0].$.href,
+				rel: _json.rss.channel[0]['atom:link'][0].$.rel,
+				type: _json.rss.channel[0]['atom:link'][0].$.type
+			}
+		}
 	});
 };
 

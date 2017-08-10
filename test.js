@@ -64,7 +64,7 @@ test.cb('JSON Formatting', t => {
 });
 
 test.cb('Full Run', t => {
-	t.plan(9);
+	t.plan(17);
 
 	const mainCbErr = t.throws(() => fn(), Error);
 	t.is(mainCbErr.message, 'No callback was provided to handle the data (this operation is synchronous only in its current version).');
@@ -77,6 +77,17 @@ test.cb('Full Run', t => {
 		t.is(Object.prototype.toString.call(data.counties), '[object Array]');
 		t.is(Object.prototype.toString.call(data.author), '[object String]');
 		t.is(Object.prototype.toString.call(data.date), '[object Date]');
+
+		t.is(Object.prototype.toString.call(data._meta), '[object Object]');
+
+		t.is(Object.prototype.toString.call(data._meta.rss), '[object Object]');
+		t.is(Object.prototype.toString.call(data._meta.rss.namespace), '[object String]');
+		t.is(Object.prototype.toString.call(data._meta.rss.version), '[object String]');
+
+		t.is(Object.prototype.toString.call(data._meta.channel), '[object Object]');
+		t.is(Object.prototype.toString.call(data._meta.channel.href), '[object String]');
+		t.is(Object.prototype.toString.call(data._meta.channel.rel), '[object String]');
+		t.is(Object.prototype.toString.call(data._meta.channel.type), '[object String]');
 
 		t.end();
 	});

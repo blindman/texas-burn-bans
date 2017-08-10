@@ -10,21 +10,6 @@ $ npm install texas-burn-bans
 ```
 
 
-## Attributes
-
-```json
-{
-	"source": "String (URL Endpoint)",
-	"title": "String",
-	"info": "String (URL Endpoint)",
-	"map": "String (URL Endpoint)",
-	"counties": "Array[String]",
-	"author": "String (Email Address)",
-	"date": "Date (ISO Format)"
-}
-```
-
-
 ## Usage
 
 ```js
@@ -40,6 +25,32 @@ texasBurnBans(data => {
 	console.log('Author: %s', data.author);
 	console.log('Updated on: %s', Date(data.date));
 });
+```
+
+
+## Attributes
+
+```json
+{
+	"source": "String (URL Endpoint)",
+	"title": "String",
+	"info": "String (URL Endpoint)",
+	"map": "String (URL Endpoint)",
+	"counties": "Array[String]",
+	"author": "String (Email Address)",
+	"date": "Date (ISO Format)",
+	"_meta": {
+		"rss": {
+			"namespace": "String",
+			"version": "String"
+		},
+		"channel": {
+			"href": "String",
+			"rel": "String",
+			"type": "String"
+		}
+	}
+}
 ```
 
 
