@@ -22,9 +22,7 @@
     "texas",
     "burn ban"
   ],
-  "dependencies": {
-    "xml2js": "^0.4.17"
-  },
+  "dependencies": {},
   "devDependencies": {
     "ava": "^0.20.0",
     "codecov": "^2.2.0",
