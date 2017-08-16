@@ -18,7 +18,6 @@ const texasBurnBans = require('texas-burn-bans');
 texasBurnBans(data => {
 	console.log('Source XML: %s', data.source);
 	console.log('Title: %s', data.title);
-	console.log('More info: %s', data.info);
 	console.log('Map of Burn Bans: %s', data.map);
 	console.log('Number of Burn Bans: %d', data.counties.length);
 	console.log('Counties with a Burn Ban: %s', data.counties.join(', '));
@@ -34,22 +33,10 @@ texasBurnBans(data => {
 {
 	"source": "String (URL Endpoint)",
 	"title": "String",
-	"info": "String (URL Endpoint)",
 	"map": "String (URL Endpoint)",
 	"counties": "Array[String]",
 	"author": "String (Email Address)",
-	"date": "Date (ISO Format)",
-	"_meta": {
-		"rss": {
-			"namespace": "String",
-			"version": "String"
-		},
-		"channel": {
-			"href": "String",
-			"rel": "String",
-			"type": "String"
-		}
-	}
+	"date": "Date (ISO Format)"
 }
 ```
 
