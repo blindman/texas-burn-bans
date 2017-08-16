@@ -23,7 +23,6 @@
     "burn ban"
   ],
   "dependencies": {
-    "request": "^2.81.0",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {

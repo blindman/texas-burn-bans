@@ -1,21 +1,25 @@
 'use strict';
-const request = require('request');
+const http = require('http');
 const parser = require('xml2js');
 
-const ENDPOINT = 'http://tfsfrp.tamu.edu/wildfires/BurnBan.xml';
+const requestOptions = {hostname: 'tfsfrp.tamu.edu', path: '/wildfires/BurnBan.xml'};
 
 const retrieveData = _successFn => {
 	if (!_successFn) {
 		throw new Error('No callback was provided to handle the data.');
 	}
 
-	const requestOptions = {method: 'GET', uri: ENDPOINT, encoding: 'utf16le'};
-	request(requestOptions, (error, response, body) => {
-		if (error) {
-			throw new Error(error);
-		}
+	http.get(requestOptions, response => {
+		let data = '';
+		response.setEncoding('utf16le');
 
-		_successFn(body);
+		response.on('data', chunk => {
+			data += chunk;
+		});
+
+		response.on('end', () => _successFn(data));
+	}).on('error', error => {
+		throw new Error(error);
 	});
 };
 
@@ -47,7 +51,7 @@ const formatJson = (_json, _successFn) => {
 	}
 
 	_successFn({
-		source: ENDPOINT,
+		source: 'http://tfsfrp.tamu.edu/wildfires/BurnBan.xml',
 		title: _json.rss.channel[0].title[0],
 		info: _json.rss.channel[0].link[0],
 		map: _json.rss.channel[0].item[0].link[0],
