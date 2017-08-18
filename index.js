@@ -11,7 +11,7 @@ module.exports = _successFn => {
 
 	http.get({hostname: HOSTNAME, path: PATH}, response => {
 		const data = {
-			source: HOSTNAME + PATH,
+			source: 'http://' + HOSTNAME + PATH,
 			title: null,
 			map: 'http://tfsfrp.tamu.edu/wildfires/DecBan.png',
 			counties: [],
