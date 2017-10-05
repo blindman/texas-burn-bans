@@ -1,6 +1,6 @@
 {
   "name": "texas-burn-bans",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Retrieve burn ban information for Texas",
   "license": "MIT",
   "repository": "blindman/texas-burn-bans",
